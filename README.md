@@ -2,12 +2,11 @@
 
 Group Name: __Fill your team name__. 
 
-Section: __Fill your class section__. 
+Section: __2__. 
 
 Team Mates:
-1. __Fill name__ and __matric no__
-2. __Fill name__ and __matric no__
-3. __Fill name__ and __matric no__
+1. __Khairina Maisarah Binti Husny__ and __2129358__
+
 
 ## Rules
 1. You are allowed to have **3 group** members. *Exception* is allowed **IFF (if and only if)** you are allowed to have 4 group members if you are a **multinational** or a **multigender** group. 
@@ -24,8 +23,8 @@ Team Mates:
 
 ***Questions:***
 
-1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __Fill answer here__.
-2. How many files and folders are in this repository. ***(1 mark)*** __Fill answer here__.
+1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __https://github.com/Khairis278/OSProject__.
+2. How many files and folders are in this repository. ***(1 mark)*** __7 Files including readme and 1 Folders__.
 
 
 ## Exploring github codespaces
@@ -57,9 +56,9 @@ Team Mates:
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Fill answer here__.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __Fill answer here__.
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** __Fill answer here__.
+1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Ubuntu Linux__.
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __2-core 8GB RAM 32 GB ROM and 4-core 16GB RAM and 32 GB ROM__.
+3. Why must we commit and sync our current work on source control? ***(1 mark)*** __It allows multiple developers to work on the same project simultaneously and see each other's changes.__.
 
 ## Exploring the Terminal
 
