@@ -1,8 +1,8 @@
 # OSProject Running Containers for Application Development
 
-Group Name: __Fill your team name__. 
+Group Name: __Oh S__
 
-Section: __2__. 
+Section: __2__
 
 Team Mates:
 1. __Khairina Maisarah Binti Husny__ and __2129358__
