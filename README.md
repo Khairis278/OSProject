@@ -360,14 +360,14 @@ docker run --detach -it debian
 ```
 2. This will run the debian container. To check if the debian container is running, type
 ```bash
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
-f65be1987f84   debian    "bash"    4 minutes ago   Up 4 minutes             romantic_jackson
+@Khairis278 ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+506bfa28d479   debian    "bash"    15 seconds ago   Up 13 seconds             laughing_tu
 ```
 
 3. Keep note of the name used by your container, this is usually given random names unless you specify your own name. Now run a bash command on the container. Make sure you use the name of your container instead of the one shown here. 
 ```bash
-docker exec -i -t romantic_jackson /bin/bash
+docker exec -i -t laughing_tu /bin/bash
 ```
 
 4. Create a file on the container. First you must make sure you are in the bash command prompt of the container. The container is new, and does not have any software other than the debian OS. To create a new file, you will need an editor installed. In the bash shell of the container, run the package manager apt-get to install nano text editor. 
@@ -386,31 +386,35 @@ root@f65be1987f84:~# nano helloworld.txt
 
 6. Stop the container and run **docker ps -a**, and restart the container again. Is your file in the container still available?
 ```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
+@Khairis278 ➜ /workspaces/OSProject (main) $ docker stop laughing_tu
 
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
-f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago             romantic_jackson
 
-@joeynor ➜ /workspaces/OSProject (main) $ docker restart romantic_jackson
+@Khairis278 ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS                       PORTS     NAMES
+506bfa28d479   debian    "bash"    4 minutes ago   Exited (137) 8 seconds ago             laughing_tu
+
+@Khairis278 ➜ /workspaces/OSProject (main) $ docker restart laughing_tu
+
 ```
 
 7. Stop the container and delete the container. What happened to your helloworld.txt?
 
 ```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
+@Khairis278 ➜ /workspaces/OSProject (main) $ docker stop laughing_tu
+  
 
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
-f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago             romantic_jackson
+@Khairis278 ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS                        PORTS     NAMES
+506bfa28d479   debian    "bash"    7 minutes ago   Exited (137) 19 seconds ago             laughing_tu
 
-@joeynor ➜ /workspaces/OSProject (main) $ docker rm romantic_jackson
+@Khairis278 ➜ /workspaces/OSProject (main) $ docker rm laughing_tu
+
 ```
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** __No, files in containers are not persistent by default.__
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Yes, we can run multiple instances of Debian Linux containers simultaneously__.
 
 ## Running your own container with persistent storage
 
@@ -419,17 +423,25 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 2. Create a file in /root on the container, the files should also appear in myroot of your host VM.
 
 ```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ mkdir myroot
-@joeynor ➜ /workspaces/OSProject (main) $ cd myroot/
-@joeynor ➜ /workspaces/OSProject/myroot (main) $ pwd
+@Khairis278 ➜ /workspaces/OSProject (main) $ mkdir myroot
+@Khairis278 ➜ /workspaces/OSProject (main) $ cd myroot/
+@Khairis278 ➜ /workspaces/OSProject/myroot (main) $ pwd
 /workspaces/OSProject/myroot
 
-@joeynor ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
+@Khairis278 ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
+788cbe377a76f84a313c726c60902b74d9622657a7b44eab5e2dbaa76e460442
 ```
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)***.
+
+```bash 
+@Khairis278 ➜ /workspaces/OSProject/myroot (main) $ docker run --rm -it -v /workspaces/OSProject/myroot:/root debian bash -c 'echo "Hello, world!" > /root/myfile.txt'
+@Khairis278 ➜ /workspaces/OSProject/myroot (main) $ ls -l /workspaces/OSProject/myroot
+total 4
+-rw-rw-rw- 1 root root 14 Jan 25 11:14 myfile.txt
+```
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
@@ -437,7 +449,13 @@ sudo chown -R codespace:codespace myroot
 
 ```
 *** __Fill answer here__.***
+```bash
+@Khairis278 ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace /workspaces/OSProject/myroot
+@Khairis278 ➜ /workspaces/OSProject/myroot (main) $ ls -l /workspaces/OSProject/myroot
+total 4
+-rw-rw-rw- 1 codespace codespace 14 Jan 25 11:14 myfile.txt
 
+```
 ## You are on your own, create your own static webpage
 
 1. Create a directory called webpage in your host machine
