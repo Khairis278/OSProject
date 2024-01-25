@@ -485,7 +485,7 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
     __htdocs folder is owned by the root user and root group, with permissions set to 755 (rwxr-xr-x)__
 
 ```bash
-@Khairis278 ➜ /workspaces/OSProject/myroot/webpage (main) $ docker exec -it optimistic_jones /bin/bash
+@Khairis278 ➜ /workspaces/OSProject/webpage (main) $ docker exec -it optimistic_jones /bin/bash
 root@2bc2b3d45995:/usr/local/apache2# ls -ld /usr/local/apache2/htdocs
 drwxr-xr-x+ 2 root root 4096 Jan 25 11:24 /usr/local/apache2/htdocs
 ```
