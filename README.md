@@ -442,13 +442,17 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 total 4
 -rw-rw-rw- 1 root root 14 Jan 25 11:14 myfile.txt
 ```
+
+**Permissions: -rw-rw-rw- , Directory: myroot , Owner: root , Group: root**
+
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+**Yes you can change the permission of the file by using the chown command**
+
 ```bash
 @Khairis278 ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace /workspaces/OSProject/myroot
 @Khairis278 ➜ /workspaces/OSProject/myroot (main) $ ls -l /workspaces/OSProject/myroot
@@ -456,6 +460,7 @@ total 4
 -rw-rw-rw- 1 codespace codespace 14 Jan 25 11:14 myfile.txt
 
 ```
+
 ## You are on your own, create your own static webpage
 
 1. Create a directory called webpage in your host machine
